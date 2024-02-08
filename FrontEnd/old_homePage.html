@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sports Management System</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+    }
+
+    nav {
+      background-color: #444;
+      padding: 1em;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 1em;
+      margin: 0 1em;
+      cursor: pointer;
+    }
+
+    section {
+      margin: 2em;
+    }
+
+    .event-container {
+      display: flex;
+      overflow-x: auto;
+    }
+
+    .event-card {
+      flex: 0 0 300px;
+      margin-right: 1em;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .event-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .event-details {
+      padding: 1em;
+    }
+
+    .slide-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 30px;
+      height: 30px;
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+    }
+
+    .prev {
+      left: 0;
+    }
+
+    .next {
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1><big>Sports Management System</big></h1>
+  </header>
+
+  <nav>
+    <a class="nav-link" href="home.html">Home</a>
+    <a class="nav-link" href="#">Events</a>
+    <a class="nav-link" href="reg1.html">Register</a>
+    <a class="nav-link" href="login.html">Login</a>
+  </nav>
+
+  <section>
+    <h2>Different Sports Events</h2>
+
+    <div class="event-container">
+      <!-- <div class="event-card">
+        <img src="Events6.jpg" alt="Event 1">
+        <div class="event-details">
+          <h3>Event 1</h3>
+          <p>Date: January 1, 2023</p>
+        </div>
+      </div>  -->
+
+      <!-- Add more event cards as needed -->
+
+      <div class="event-details">
+        <img src="Events1.jpg" alt="Event 3">
+        <div class="event-de">
+          <h3>Event 1</h3>
+          <p>Date: December 1, 2024</p>
+        </div>
+      </div>
+      <div class="event-de">
+        <img src="Events2.jpg" alt="Event 4">
+        <div class="event-cd">
+          <h3>Event 2</h3>
+          <p>Date: December 31, 2023</p>
+        </div>
+      </div>
+      <div class="event-cd">
+        <img src="Events5.jpg" alt="Event 5">
+        <div class="event-ab">
+          <h3>Event 3</h3>
+          <p>Date: January 21, 2023</p>
+        </div>
+      </div>
+      <div class="event-ab">
+        <img src="Events6.jpg" alt="Event 6">
+        <div class="event-bc">
+          <h3>Event 4</h3>
+          <p>Date: February 1, 2023</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-btn prev" onclick="prevSlide()">❮</div>
+    <div class="slide-btn next" onclick="nextSlide()">❯</div>
+  </section>
+
+  <script>
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      const eventContainer = document.querySelector('.event-container');
+      const eventCards = document.querySelectorAll('.event-card');
+      const totalSlides = eventCards.length;
+
+      if (index >= totalSlides) {
+        currentSlide = 0;
+      } else if (index < 0) {
+        currentSlide = totalSlides - 1;
+      } else {
+        currentSlide = index;
+      }
+
+      const translateValue = -currentSlide * (eventCards[0].offsetWidth + 1);
+      eventContainer.style.transform = `translateX(${translateValue}px)`;
+    }
+
+    function nextSlide() {
+      showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      showSlide(currentSlide - 1);
+    }
+  </script>
+
+</body>
+</html>
